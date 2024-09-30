@@ -7,17 +7,23 @@ skip-lint = false
 [programs.localnet]
 wen_dev_program = "4ubxrDaVYVbP5Qmqdwe43haohnBMEaSY1aCXxxDJQVS7"
 
+[programs.devnet]
+wen_dev_program = "4ubxrDaVYVbP5Qmqdwe43haohnBMEaSY1aCXxxDJQVS7"
+
 [registry]
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
-wallet = "./testKeypair.json"
+# cluster = "Localnet"
+cluster = "devnet"
+# wallet = "./testKeypair.json"
+wallet = "/root/.config/solana/id.json"
+
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
 
-[dependencies]
-anchor-lang = "0.28.0"
-anchor-spl = "0.28.0"
+# [dependencies]
+# anchor-lang = "0.28.0"
+# anchor-spl = "0.28.0"
 

@@ -5,6 +5,7 @@ use core::{cmp::Ordering, fmt::Debug};
 #[account]
 pub struct Config {
     pub authority: Pubkey,
+    pub fee_wallet: Pubkey,
 
     pub platform_buy_fee_bps: u16,
     pub platform_sell_fee_bps: u16,

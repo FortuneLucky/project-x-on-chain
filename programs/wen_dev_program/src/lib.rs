@@ -1,11 +1,12 @@
+use anchor_lang::prelude::*;
+
+use instructions::*;
+
 pub mod constants;
 pub mod errors;
-pub mod instructions;
+mod instructions;
 pub mod state;
-
-use crate::instructions::*;
-use anchor_lang::prelude::*;
-use state::Config;
+use crate::state::Config;
 
 declare_id!("4ubxrDaVYVbP5Qmqdwe43haohnBMEaSY1aCXxxDJQVS7"); // TODO: Update this ID
 
@@ -47,5 +48,11 @@ pub mod wen_dev_program {
         buy_lamports: Option<u64>,
     ) -> Result<()> {
         instructions::snipe(ctx, token, bid_amount, buy_lamports)
+    }
+
+    pub fn migrate<'info>(
+        ctx: Context<'_, '_, '_, 'info, Migrate<'info>>
+    ) -> Result<()> {
+        instructions::migrate(ctx)
     }
 }
