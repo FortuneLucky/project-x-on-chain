@@ -1,0 +1,59 @@
+= wen.dev program
+
+== Setup
+Only needed once per chain
+
+=== Deployment
+Program is deployed
+
+=== Config
+Call the `configure` instruction to set the config for the program +
+Sets the fee amounts and allowed launch parameters.
+
+
+== Launch
+Each time a user launches a new token
+
+=== Create Launch
+Create a `TokenLaunch` by calling the `launch` instruction +
+Creates the token and metadata accounts, sets the max supply +
+Sets the parameters for the token launch
+
+Launch is in the `Presale` phase
+
+=== Presale
+Users can snipe the launch (buy the token before it goes live) +
+To do so, they call the `snipe` instruction with the corresponding token launch info
+
+Launch must be in the `Presale` phase to allow sniping
+
+Adds/updates the user's `SniperConfig` struct to the `SnipeQueue` on-chain account
+
+=== Close Presale
+One the presale is over, anyone can call the permissionless `close_presale` instruction +
+This sets the launch phase to `ProcessingPresale` +
+The `SnipeQueue` is sorted, and `token_amounts` are populated based on the position of the `SniperConfig` in the snipe queue
+
+=== Process Presale
+Sends out the token amounts to the snipers, also permissionless +
+As each `SniperConfig` is processed, it sets `SniperConfig.processed` to true
+
+=== Open Sale
+Asserts `SniperConfig.processed` is true for all sniper configs in `SnipeQueue` +
+Sets the launch phase to `OpenSale` +
+This allows any user to swap with the bonding curve live
+
+=== Swap
+Launch must be in the `OpenSale` phase +
+Users can call the `swap` instruction to swap tokens live with the bonding curve.
+
+If the bonding curve is complete (reaches it's sol target) the launch phase is set to `Closed`
+
+=== Migrate
+Launch must be in the `Closed` phase +
+Asserts the bonding curve has reached it's target +
+Anyone can call the `migrate` instruction to migrate the token to the configured AMM (Raydium or Meteora)
+
+Sends the migration fees to the fee wallet +
+Creates the AMM accounts and add the rest of the sol and tokens as liquidity +
+Burns the LP tokens
