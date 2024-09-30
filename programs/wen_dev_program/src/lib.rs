@@ -8,7 +8,7 @@ mod instructions;
 pub mod state;
 use crate::state::Config;
 
-declare_id!("4ubxrDaVYVbP5Qmqdwe43haohnBMEaSY1aCXxxDJQVS7"); // TODO: Update this ID
+declare_id!("AaGjWPSAGxmJLTpDq3ntvnRugVfde1JV1EmVEBPhynC4"); // TODO: Update this ID
 
 #[program]
 pub mod wen_dev_program {

@@ -8,7 +8,7 @@ skip-lint = false
 wen_dev_program = "4ubxrDaVYVbP5Qmqdwe43haohnBMEaSY1aCXxxDJQVS7"
 
 [programs.devnet]
-wen_dev_program = "4ubxrDaVYVbP5Qmqdwe43haohnBMEaSY1aCXxxDJQVS7"
+wen_dev_program = "AaGjWPSAGxmJLTpDq3ntvnRugVfde1JV1EmVEBPhynC4"
 
 [registry]
 url = "https://api.apr.dev"
