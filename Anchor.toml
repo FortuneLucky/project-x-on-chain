@@ -14,16 +14,13 @@ wen_dev_program = "AaGjWPSAGxmJLTpDq3ntvnRugVfde1JV1EmVEBPhynC4"
 url = "https://api.apr.dev"
 
 [provider]
-# cluster = "Localnet"
+
 cluster = "devnet"
-# wallet = "./testKeypair.json"
 wallet = "/root/.config/solana/id.json"
 
 
 [scripts]
 test = "yarn run ts-mocha -p ./tsconfig.json -t 1000000 tests/**/*.ts"
 
-# [dependencies]
-# anchor-lang = "0.28.0"
-# anchor-spl = "0.28.0"
+
 

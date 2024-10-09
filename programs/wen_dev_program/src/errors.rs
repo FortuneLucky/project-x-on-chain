@@ -1,5 +1,4 @@
 use anchor_lang::prelude::*;
-
 pub use WenDevError::*;
 
 #[error_code]

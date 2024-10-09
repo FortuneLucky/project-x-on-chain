@@ -1,22 +1,22 @@
 [package]
-name = "wen_dev_program"
+name = "project-on-chain"
 version = "0.1.0"
 description = "Created with Anchor"
 edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "wen_dev_program"
+name = "project_on_chain"
 
 [features]
-default = []
-cpi = ["no-entrypoint"]
 no-entrypoint = []
 no-idl = []
 no-log-ix-name = []
-idl-build = ["anchor-lang/idl-build", "anchor-spl/idl-build"]
+cpi = ["no-entrypoint"]
+default = []
 
 [dependencies]
-anchor-lang = { version = "0.30.1", features = ["init-if-needed"] }
-anchor-spl = { version = "0.30.1", default-features = false, features = ["mint", "associated_token", "token", "token_2022", "token_2022_extensions", "metadata"] }
-solana-program = "1.18.15"
+anchor-lang = { version = "0.29.0", features = ["init-if-needed"] }
+anchor-spl = { version = "0.29.0", default-features = false, features = ["mint", "associated_token", "token", "metadata"] }
+amm-anchor = { path = "../../amm-anchor", features = ["devnet"] }
+solana-program = "1.18.18"

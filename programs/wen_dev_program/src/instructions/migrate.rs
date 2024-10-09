@@ -124,7 +124,7 @@ pub fn migrate(ctx: Context<Migrate>) -> Result<()> {
             accts.special_sol_wallet.to_account_info().clone(),
             accts.system_program.to_account_info().clone(),
         ],
-        &[&[SOL_VAULT.as_bytes(), &accts.token.key().to_bytes(), &[bump]]],
+        sol_signer,
     )?;
 
     Ok(())
