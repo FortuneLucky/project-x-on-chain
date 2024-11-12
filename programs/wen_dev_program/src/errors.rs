@@ -1,5 +1,4 @@
 use anchor_lang::prelude::*;
-
 pub use WenDevError::*;
 
 #[error_code]
@@ -39,4 +38,8 @@ pub enum WenDevError {
     // 6008
     #[msg("BuyLamportsExceedsMaxSnipeAmount")]
     BuyLamportsExceedsMaxSnipeAmount,
+
+    // 6009
+    #[msg("The launch is not completed yet.")]
+    NotCompleted,
 }
